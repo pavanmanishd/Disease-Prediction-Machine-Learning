@@ -25,3 +25,33 @@
 - React
 - Node.js
 - Express.js
+
+## How to run the project
+- Clone the repository.
+- Open the terminal in the project directory.
+- Run the following commands:
+```
+cd server
+npm install
+npm start
+```
+- The server will be running on localhost:5000.
+- Open another terminal in the project directory.
+- Run the following commands:
+```
+cd frontend
+npm install
+npm start
+```
+- The project will be running on localhost:3000.
+
+## Contributors
+
+<!-- - ![Pavan Manish](https://avatars.githubusercontent.com/u/108605548) -->
+<!-- - ![Vishal Sai](https://avatars.githubusercontent.com/u/99084280) -->
+<a href="https://github.com/pavanmanishd">
+<img src="https://avatars.githubusercontent.com/u/108605548?v=4" width = "50" style="border-radius:25px;">
+</a>
+<a href="https://github.com/Vishal0129">
+<img src="https://avatars.githubusercontent.com/u/99084280?v=4" width = "50" style="border-radius:25px;">
+</a>
