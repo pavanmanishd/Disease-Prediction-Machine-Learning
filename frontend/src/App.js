@@ -12,6 +12,8 @@ function App() {
   const [precautions, setPrecautions] = useState([]);
   const [prediction, setPrediction] = useState();
   const [show, setShow] = useState(false);
+  const [treatment, setTreatment] = useState([]);
+  const [medication, setMedication] = useState([]);
   const fuse = new Fuse(symptoms, {
     includeScore: true,
     shouldSort: true,
@@ -64,16 +66,25 @@ function App() {
       setDisease(prediction.disease);
       setDescription(prediction.description);
       setPrecautions([prediction.precaution1, prediction.precaution2, prediction.precaution3, prediction.precaution4]);
+      setTreatment([prediction.treatment1, prediction.treatment2, prediction.treatment3]);
+      setMedication([prediction.medication1, prediction.medication2, prediction.medication3]);
     }
   }, [prediction])
   const precautionsList = precautions.map((i) => {
     if (i !== "")
       return <li key={i}>{i}</li>
   })
-  const h = "Precautions"
+  const treatmentList = treatment.map((i) => {
+    if (i !== "")
+      return <li key={i}>{i}</li>
+  })
+  const medicationList = medication.map((i) => {
+    if (i !== "")
+      return <li key={i}>{i}</li>
+  })
   return (
     <div className="App">
-      <h1>Disease Prediction</h1>
+      {!show && <h1>Disease Prediction</h1>}
       {!show && <div class="searching-data">
         <div className="search">
           <input type="text" onChange={handleChange} placeholder="Enter symptoms " />
@@ -89,10 +100,18 @@ function App() {
         {!Disease && <div class="loader">
           <div class="lds-default"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
         </div>}
+        {Disease && <h1 className="heading">Predicted Disease</h1>}
         {Disease && <div className="pred">
           <h2>{Disease}</h2>
           <p>{description}</p>
-          <h3>{Disease && h}</h3>
+          <hr className="divider" />
+          <h3>Treatment</h3>
+          <ul>{treatmentList}</ul>
+          <hr className="divider" />
+          <h3>Medication</h3>
+          <ul>{medicationList}</ul>
+          <hr className="divider"/>
+          <h3>Precautions</h3>
           <ul>{precautionsList}</ul>
           <button className="predict predict-again" onClick={PredictAgain} >Predict Again</button>
         </div>}

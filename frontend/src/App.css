@@ -14,8 +14,8 @@ body {
 }
 h1 {
     font-size: 3rem;
-    margin-bottom: 0px;
     margin-bottom: 50px;
+    margin: 50px auto;
 }
 .search {
     display: flex;
@@ -115,7 +115,10 @@ hr {
     background-color: #252525;
     color: #c2c2c2;
 }
-.predict-again{align-self: flex-end;}
+.predict-again{
+  align-self: flex-end;
+  margin-bottom: 30px;
+}
 .predict:hover {
     background-color: #c2c2c2;
     color: #252525;
@@ -132,6 +135,14 @@ hr {
     margin: 0px;
     padding: 0px;
 }
+
+.divider{
+    width: 80vw;
+    background-color: #c2c2c2;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 
 .loader {
     display: flex;
