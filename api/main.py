@@ -51,3 +51,6 @@ def index(string: str):
         "medication2": '' if isNAN(diagnosis[5]) else diagnosis[5],
         "medication3": '' if isNAN(diagnosis[6]) else diagnosis[6],
     }
+
+if __name__ == '__main__':
+    uvicorn.run(app, host='127.0.0.1', port=8000)
