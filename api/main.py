@@ -1,4 +1,5 @@
 import uvicorn
+import sklearn
 from fastapi import FastAPI
 import pickle
 import pandas as pd
