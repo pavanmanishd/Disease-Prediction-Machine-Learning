@@ -46,6 +46,16 @@ npm start
 - The project will be running on localhost:3000.
 
 
+#
+
+
+## NOTE : For linux users, in server/server.js file , in line 14 change the command spawned to `python3` or `python` instead of `py`.
+
+#
+
+
+
+
 # Project Architecture
 
 ## Frontend
