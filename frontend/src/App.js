@@ -85,11 +85,11 @@ function App() {
   return (
     <div className="App">
       {!show && <h1>Disease Prediction</h1>}
-      {!show && <div class="searching-data">
+      {!show && <div className="searching-data">
         <div className="search">
           <input type="text" onChange={handleChange} placeholder="Enter symptoms " />
-          <div class="result-block">{inputItem != "" && <div className="searchresults">{searchResults}</div>}</div>
-          <div class="selctedsymptoms">
+          <div className="result-block">{inputItem != "" && <div className="searchresults">{searchResults}</div>}</div>
+          <div className="selctedsymptoms">
             {item.length > 0 && <span>Selected symptoms   </span>}
             <div className="selecteditems">{selectedItems}</div>
           </div>
