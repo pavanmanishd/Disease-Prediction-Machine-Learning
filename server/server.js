@@ -11,7 +11,7 @@ app.get('/predict/:str', (req, res) => {
     const { str } = req.params;
     fs.writeFile('./symptoms.txt', str, 'utf8', () => {
         console.log("File written");
-                const child = spawn('py', ['./main.py']);
+                const child = spawn('python3', ['./main.py']);
                 child.stdout.on('data',  (data) => {
                     const msg = data.toString().trim();
                     console.log(data.toString());
