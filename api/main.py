@@ -3,6 +3,7 @@ import sklearn
 from fastapi import FastAPI
 import pickle
 import pandas as pd
+from fastapi.middleware.cors import CORSMiddleware
 model = pickle.load(open('./model/model.pkl','rb'))
 symps = pickle.load(open('./data/symptoms.pkl','rb'))
 desc_data = pd.read_csv('./data/symptom_Description.csv')
@@ -10,12 +11,16 @@ prec_data = pd.read_csv('./data/symptom_precaution.csv')
 diagnosis_data = pd.read_csv('./data/Disease_diagnosis.csv')
 
 app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=['*']
+)
 
 def isNAN(num):
     return num != num
 
 @app.get('/predict/{string}')
-def index(string: str):
+async def index(string: str):
     sym = string.split('-')
     sym.pop()
     s = []
