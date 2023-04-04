@@ -1,11 +1,12 @@
-import uvicorn
-import sklearn
 from fastapi import FastAPI
 import pickle
 import pandas as pd
 from fastapi.middleware.cors import CORSMiddleware
+
+
 model = pickle.load(open('./model/model.pkl','rb'))
 symps = pickle.load(open('./data/symptoms.pkl','rb'))
+
 desc_data = pd.read_csv('./data/symptom_Description.csv')
 prec_data = pd.read_csv('./data/symptom_precaution.csv')
 diagnosis_data = pd.read_csv('./data/Disease_diagnosis.csv')
@@ -31,9 +32,10 @@ async def index(string: str):
             s.append(0)
     sym = pd.DataFrame(s).T
     sym.columns = symps
+    
     test_pred = model.predict(sym)
-    # print(test_pred)
-    index = desc_data[desc_data["Disease"] == test_pred[0].strip()].index.values
+
+    index = desc_data[desc_data["Disease"] == test_pred[0]].index.values
     description = desc_data.iloc[index[0]].values
     description = description.tolist()
     prec_index = prec_data[prec_data["Disease"] == test_pred[0].strip()].index.values
